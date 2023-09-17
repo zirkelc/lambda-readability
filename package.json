@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cd frontend && npm start",
     "deploy": "cd backend && cdk deploy"
   },
   "dependencies": {},

@@ -1,76 +1,62 @@
-import { useEffect, useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import { useState } from "react";
+import { Button } from "./components/Button";
+import { Spinner } from "./components/Spinner";
+import { useContent } from "./hooks/useContent";
+import { useUrlState } from "./hooks/useUrlState";
 
 function App() {
-  const [url, setUrl] = useState<string>();
-  const [content, setContent] = useState<string>();
-  const [isLoading, setLoading] = useState<boolean>(false);
+  const [input, setInput] = useState<string>("");
+  const [url, setUrl] = useUrlState("url");
+  const { content, isLoading } = useContent(url);
 
-  useEffect(() => {}, []);
+  console.log("url", url);
 
   const handleSubmit = async () => {
-    if (!url) return;
+    if (!input.trim()) return;
 
-    setLoading(true);
-    const request = new URL(
-      "https://2d22e8b86h.execute-api.eu-west-1.amazonaws.com/prod",
-    );
-    request.searchParams.append("url", url);
-
-    const response = await fetch(request);
-    const data = await response.text();
-    setContent(data);
-    setLoading(false);
+    const inputUrl = new URL(input);
+    setUrl(inputUrl.toString());
   };
 
-  const handleReset = () => {};
-
   return (
-    <>
-      {isLoading ? (
-        <div>Loading...</div>
-      ) : content ? (
-        <>
-          <button onClick={handleReset}>Reset</button>
-          <article
-            className="prose lg:prose-xl"
-            dangerouslySetInnerHTML={{ __html: content }}
-          />
-        </>
+    <div className="container mx-auto">
+      {url ? (
+        isLoading ? (
+          <Spinner />
+        ) : (
+          <div className="flex flex-col items-center justify-center py-4 space-y-4 divide-y divide-solid">
+            <nav className="flex flex-row w-full">
+              <a
+                href={url}
+                target="_blank"
+                referrerPolicy="no-referrer"
+                className="font-mono"
+              >
+                {url.toString()}
+              </a>
+            </nav>
+            <article
+              className="prose lg:prose-xl max-w-none"
+              dangerouslySetInnerHTML={{ __html: content }}
+            />
+            <footer className="flex flex-row w-full"></footer>
+          </div>
+        )
       ) : (
-        <>
+        <div className="flex items-center justify-center h-screen max-w-xl mx-auto">
           <input
+            className="w-full rounded-lg rounded-r-none border border-blue-gray-200 bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 focus:border-black"
             type="url"
             placeholder="https://example.com"
-            onChange={(e) => setUrl(e.target.value)}
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
           />
-          <button onClick={handleSubmit}>Submit</button>
-        </>
+          <Button className="rounded-l-none" onClick={handleSubmit}>
+            Submit
+          </Button>
+        </div>
       )}
-
-      {/* <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p> */}
-    </>
+    </div>
   );
 }
 
