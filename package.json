@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "start": "npm start --workspaces --if-present",
-    "build": "npm run deploy --workspace=backend --if-present && npm run deploy --workspace=frontend --if-present",
+    "build": "npm run build --workspace=backend --if-present && npm run build --workspace=frontend --if-present",
     "deploy": "npm run deploy --workspace=backend --if-present && npm run deploy --workspace=frontend --if-present"
   },
   "dependencies": {},
