@@ -37,7 +37,7 @@ export function useUrlState(
       window.location.pathname + (newSearch ? "?" + newSearch : "");
 
     if (newUrl !== window.location.pathname + window.location.search) {
-      window.history.replaceState({}, "", newUrl);
+      window.history.pushState({}, "", newUrl);
     }
   }, [key, state]);
 
