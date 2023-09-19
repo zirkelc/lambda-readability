@@ -20,6 +20,10 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
+env:
+  AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
+  AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
+
 jobs:
   deploy:
     environment:

@@ -1,7 +1,7 @@
 {
   "LambdaReadabilityStack": {
-    "ApiUrl": "https://v32y6ymgl1.execute-api.eu-west-1.amazonaws.com/prod/",
-    "ApiKey": "n5hz3sptnd",
-    "lambdareadabilityapiEndpointE3221A35": "https://v32y6ymgl1.execute-api.eu-west-1.amazonaws.com/prod/"
+    "ApiUrl": "https://ldmjalx3mf.execute-api.us-east-1.amazonaws.com/prod/",
+    "ApiKey": "u5i1czrome",
+    "lambdareadabilityapiEndpointE3221A35": "https://ldmjalx3mf.execute-api.us-east-1.amazonaws.com/prod/"
   }
 }
