@@ -1,0 +1,17 @@
+// https://github.com/microsoft/vscode-eslint/blob/b974cef5a96e21136924cb560db99bd553c61682/README.md
+{
+  "files.exclude": {
+    "**/node_modules": false
+  },
+  "eslint.enable": true,
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+}

@@ -1,6 +1,3 @@
-*.js
-!jest.config.js
-*.d.ts
 node_modules
 
 # CDK asset staging directory
@@ -21,8 +18,6 @@ dist-ssr
 *.local
 
 # Editor directories and files
-.vscode/*
-!.vscode/extensions.json
 .idea
 .DS_Store
 *.suo
