@@ -54,11 +54,13 @@ export class LambdaReadabilityStack extends cdk.Stack {
         allowHeaders: Cors.DEFAULT_HEADERS,
       },
     });
+
     api.root.addMethod("GET", lambdaIntegration, {
       requestParameters: { "method.request.querystring.url": true },
       apiKeyRequired: true,
     });
 
+    const key = api.addApiKey("lambda-readability-apikey");
     const plan = api.addUsagePlan("lambda-readability-plan", {
       quota: {
         limit: 1_000,
@@ -70,13 +72,8 @@ export class LambdaReadabilityStack extends cdk.Stack {
       },
     });
 
-    const key = api.addApiKey("lambda-readability-apikey");
     plan.addApiKey(key);
-
-    plan.addApiStage({
-      api,
-      stage: api.deploymentStage,
-    });
+    plan.addApiStage({ api, stage: api.deploymentStage });
 
     new cdk.CfnOutput(this, "ApiUrl", {
       value: api.url,

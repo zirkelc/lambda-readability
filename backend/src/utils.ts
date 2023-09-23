@@ -18,19 +18,18 @@ type Result = {
 
 type Response =
   | {
-    result: Result | null;
-    error?: undefined;
-  }
+      result: Result | null;
+      error?: undefined;
+    }
   | {
-    result?: undefined;
-    error: Error;
-  };
+      result?: undefined;
+      error: Error;
+    };
 
 export function parseRequest(event: APIGatewayProxyEventV2): Params {
   const { url } = event.queryStringParameters || {};
 
-  if (!url)
-    throw new Error("Missing query string parameter: url");
+  if (!url) throw new Error("Missing query string parameter: url");
 
   try {
     // eslint-disable-next-line no-new
@@ -54,13 +53,13 @@ export function formatResponse(response: Response) {
 
   return error
     ? {
-      statusCode: 400,
-      body: error?.message,
-      headers,
-    }
+        statusCode: 400,
+        body: error?.message,
+        headers,
+      }
     : {
-      statusCode: 200,
-      body: result?.content,
-      headers,
-    };
+        statusCode: 200,
+        body: result?.content,
+        headers,
+      };
 }
