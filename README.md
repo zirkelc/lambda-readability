@@ -20,15 +20,21 @@ Visit [zirkelc.github.io/lambda-readability](https://zirkelc.github.io/lambda-re
 
 [Readability](https://zirkelc.github.io/lambda-readability/?url=http%3A%2F%2Fwww.paulgraham.com%2Fmakersschedule.html) vs [Original](http://www.paulgraham.com/makersschedule.html)
 
-![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/sne91wuoqqorj856ifhb.png)**Understanding AWS Lambda’s invoke throttling limits** by Archana Srikanta on the AWS Compute Blog. 
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/sne91wuoqqorj856ifhb.png)
+
+**Understanding AWS Lambda’s invoke throttling limits** by Archana Srikanta on the AWS Compute Blog. 
 
 [Readability](https://zirkelc.github.io/lambda-readability/?url=http%3A%2F%2Fwww.paulgraham.com%2Fmakersschedule.html) vs [Original](http://www.paulgraham.com/makersschedule.html)
 
-![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/a6i6vgt0ptok2v2wvqcu.png) **Advice for Junior Developers** by Jeroen De Dauw on [DEV.to](http://DEV.to) 
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/a6i6vgt0ptok2v2wvqcu.png) 
+
+**Advice for Junior Developers** by Jeroen De Dauw on [DEV.to](http://DEV.to) 
 
 [Readability](https://zirkelc.github.io/lambda-readability/?url=http%3A%2F%2Fwww.paulgraham.com%2Fmakersschedule.html) vs [Original](http://www.paulgraham.com/makersschedule.html)
 
-![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/yf1vbwko0ksmwzmqg5x4.png)## Development
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/yf1vbwko0ksmwzmqg5x4.png)
+
+## Development
 
 Install dependencies from root:
 
@@ -46,7 +52,7 @@ npm run deploy
 
 Note API URL from the outputs and retrieve the secret API key from the AWS console. Then add tehse values to [vite.config.ts](https://./frontend/vite.config.ts): 
 
-```
+```ts
 export default defineConfig(() => {
   process.env.VITE_API_URL = "https://...";
   process.env.VITE_API_KEY = "...";
