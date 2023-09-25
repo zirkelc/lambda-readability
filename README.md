@@ -2,15 +2,15 @@
 
 Lambda Readability is a Serverless Reader View to extract readable content from web pages using AWS Lambda, Chromium, and the Readability.js library.
 
-For more information, read my article on [DEV.to](http://DEV.to): [Building a Serverless Reader View with Lambda and Chrome](https://dev.to/aws-builders/build-a-reader-view-with-lambda-and-1gc3-temp-slug-7485541?preview=391f5c98e5dfc3a139493afb5a0e482e597d7df3219af181d5aeed93ac559ff9271b77d3ae06fe47db1c0f0a19869c101e69c1750167814c816d7c6a)
+For more information, read my article on [DEV.to](http://DEV.to): [Building a Serverless Reader View with Lambda and Chrome](https://dev.to/aws-builders/building-a-serverless-reader-view-with-lambda-and-chrome-766)
 
 ## Features
 
-- Serverless architecture built with AWS CDK.
-- Runs a headless Chrome browser in an AWS Lambda function to extract content from web pages.
-- Uses the Readability.js library to convert complex web pages into a clean and readable view.
-- Simple REST API to retrieve the readable content from a given URL.
-- Demonstration web app built with React, Tailwind, and Vite to showcase the project.
+- Serverless project built with AWS CDK
+- Runs a headless Chrome browser on AWS Lambda
+- Uses the Readability.js library to extract readable content from a web page
+- Simple REST API for requests
+- Frontend built with React, Tailwind, and Vite
 
 ## Application
 
