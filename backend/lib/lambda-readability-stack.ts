@@ -33,7 +33,7 @@ export class LambdaReadabilityStack extends cdk.Stack {
       runtime: Runtime.NODEJS_18_X,
       timeout: cdk.Duration.seconds(30),
       memorySize: 1600,
-      reservedConcurrentExecutions: 1,
+      reservedConcurrentExecutions: 10,
       environment: {
         NODE_OPTIONS: "--enable-source-maps --stack-trace-limit=1000",
       },
@@ -63,7 +63,7 @@ export class LambdaReadabilityStack extends cdk.Stack {
     const key = api.addApiKey("lambda-readability-apikey");
     const plan = api.addUsagePlan("lambda-readability-plan", {
       quota: {
-        limit: 1_000,
+        limit: 5_000,
         period: Period.DAY,
       },
       throttle: {
