@@ -32,7 +32,7 @@ export class LambdaReadabilityStack extends cdk.Stack {
       handler: "handler",
       runtime: Runtime.NODEJS_18_X,
       timeout: cdk.Duration.seconds(30),
-      memorySize: 1600,
+      memorySize: 2048,
       reservedConcurrentExecutions: 10,
       environment: {
         NODE_OPTIONS: "--enable-source-maps --stack-trace-limit=1000",
